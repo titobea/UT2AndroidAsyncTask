@@ -26,10 +26,14 @@ public class FindBeerActivity extends AppCompatActivity {
 
         // Simulamos una tarea larga (acceso a la red, cálculo, base de datos) y forzamos un ANR.
         // Nunca debemos hacer esto en el UI Thread!
-        SystemClock.sleep(14000);
+        //SystemClock.sleep(14000);
+        //nueva llamada a la tarea larga
+        FindBeerAsyncTask f = new FindBeerAsyncTask();
+        f.execute("Descarga de tipos de cerveza");
 
         String beerType = String.valueOf(color.getSelectedItem());
         List<String> brandList = expert.getBrands(beerType);
+
         StringBuilder brandsFormatted = new StringBuilder();
         for (String brand: brandList) {
             brandsFormatted.append(brand).append("\n");
