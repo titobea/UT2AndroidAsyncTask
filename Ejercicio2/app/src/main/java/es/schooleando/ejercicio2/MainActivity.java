@@ -1,6 +1,5 @@
 package es.schooleando.ejercicio2;
 
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBotonDescarga(View view) {
-        new Thread(new Runnable() {
-
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
                 sleep(10000);
@@ -28,7 +26,17 @@ public class MainActivity extends AppCompatActivity {
                 botonDescarga.setEnabled(false);
             }
 
-        }).start();
+        }).start();*/
+        
+        //El funcionamiento correcto seria el siguiente:
+        botonDescarga.post(new Runnable() {
+            @Override
+            public void run() {
+                sleep(10000);
+                botonDescarga.setText("Descargado!");
+                botonDescarga.setEnabled(false);
+            }
+        });
     }
 
 }
