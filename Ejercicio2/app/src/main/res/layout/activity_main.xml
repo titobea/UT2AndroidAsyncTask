@@ -3,7 +3,24 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="1">
+
+    <!-- he añadido un texto y la progressbar para que quede mejor -->
+    <TextView
+        android:id="@+id/tv"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:max="100"
+        android:progress="0"
+        android:id="@+id/pb"
+        android:layout_weight="0.05" />
 
     <Button
         android:text="Descargar"
